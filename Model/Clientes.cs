@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaAtendimento.Controller
+namespace SistemaAtendimento.Model
 {
     internal class Clientes
     {
