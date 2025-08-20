@@ -39,6 +39,7 @@
             consultasToolStripMenuItem = new ToolStripMenuItem();
             sistemaToolStripMenuItem = new ToolStripMenuItem();
             sairToolStripMenuItem = new ToolStripMenuItem();
+            btnConexao = new Button();
             MnuCadastrosClientes.SuspendLayout();
             SuspendLayout();
             // 
@@ -47,7 +48,7 @@
             MnuCadastrosClientes.Items.AddRange(new ToolStripItem[] { cadastroToolStripMenuItem, atendimentosToolStripMenuItem, sistemaToolStripMenuItem });
             MnuCadastrosClientes.Location = new Point(0, 0);
             MnuCadastrosClientes.Name = "MnuCadastrosClientes";
-            MnuCadastrosClientes.Size = new Size(800, 24);
+            MnuCadastrosClientes.Size = new Size(799, 24);
             MnuCadastrosClientes.TabIndex = 0;
             // 
             // cadastroToolStripMenuItem
@@ -113,11 +114,22 @@
             sairToolStripMenuItem.Size = new Size(93, 22);
             sairToolStripMenuItem.Text = "Sair";
             // 
+            // btnConexao
+            // 
+            btnConexao.Location = new Point(632, 408);
+            btnConexao.Name = "btnConexao";
+            btnConexao.Size = new Size(144, 24);
+            btnConexao.TabIndex = 1;
+            btnConexao.Text = "Teste Conexão";
+            btnConexao.UseVisualStyleBackColor = true;
+            btnConexao.Click += this.btnConexao_Click;
+            // 
             // FrmSistemaAtedimento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(799, 455);
+            Controls.Add(btnConexao);
             Controls.Add(MnuCadastrosClientes);
             MainMenuStrip = MnuCadastrosClientes;
             Name = "FrmSistemaAtedimento";
@@ -141,5 +153,6 @@
         private ToolStripMenuItem consultasToolStripMenuItem;
         private ToolStripMenuItem sistemaToolStripMenuItem;
         private ToolStripMenuItem sairToolStripMenuItem;
+        private Button btnConexao;
     }
 }
