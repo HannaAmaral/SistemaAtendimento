@@ -63,6 +63,7 @@
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             clientesToolStripMenuItem.Size = new Size(184, 22);
             clientesToolStripMenuItem.Text = "Clientes";
+            clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
             // 
             // usuárioToolStripMenuItem
             // 
@@ -111,8 +112,9 @@
             // sairToolStripMenuItem
             // 
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            sairToolStripMenuItem.Size = new Size(93, 22);
+            sairToolStripMenuItem.Size = new Size(180, 22);
             sairToolStripMenuItem.Text = "Sair";
+            sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
             // btnConexao
             // 
@@ -122,7 +124,7 @@
             btnConexao.TabIndex = 1;
             btnConexao.Text = "Teste Conexão";
             btnConexao.UseVisualStyleBackColor = true;
-            btnConexao.Click += this.btnConexao_Click;
+            btnConexao.Click += btnConexao_Click;
             // 
             // FrmSistemaAtedimento
             // 

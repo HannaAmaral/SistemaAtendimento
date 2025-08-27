@@ -9,12 +9,12 @@ namespace SistemaAtendimento
         {
             InitializeComponent();
         }
-         
-        private void btnConexao_Click(object sender, EventArgs e) 
+
+        private void btnConexao_Click(object sender, EventArgs e)
         {
-            try 
+            try
             {
-                using (SqlConnection conexao = ConexaoDB.GetConexao()) 
+                using (SqlConnection conexao = ConexaoDB.GetConexao())
                 {
                     conexao.Open();
                     MessageBox.Show("Conexão Realizada com Sucesso!");
@@ -22,8 +22,19 @@ namespace SistemaAtendimento
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao Conectar:" + ex.Message); 
+                MessageBox.Show("Erro ao Conectar:" + ex.Message);
             }
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCadastrosClientes frmCadastrosClientes = new FrmCadastrosClientes();
+            frmCadastrosClientes.ShowDialog();
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           Application.Exit();
         }
     }
 }
