@@ -16,5 +16,10 @@ namespace SistemaAtendimento.View
         {
             InitializeComponent();
         }
+
+        private void grbDadosCliente_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

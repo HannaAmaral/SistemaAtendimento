@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadastrosClientes));
             grbDadosCliente = new GroupBox();
             cbxEstado = new ComboBox();
             pnlSituacao = new Panel();
@@ -52,7 +54,7 @@
             lblTipoPessoa = new Label();
             pnlTipoPessoa = new Panel();
             rdbJuridica = new RadioButton();
-            lblFisica = new RadioButton();
+            rdbFisica = new RadioButton();
             txtTelefone = new TextBox();
             txtCelular = new TextBox();
             lblCelular = new Label();
@@ -64,6 +66,7 @@
             lblNome = new Label();
             lblCodigo = new Label();
             btnNovo = new Button();
+            imlIcones = new ImageList(components);
             btnEditar = new Button();
             btnSalvar = new Button();
             btnExcluir = new Button();
@@ -301,7 +304,7 @@
             // pnlTipoPessoa
             // 
             pnlTipoPessoa.Controls.Add(rdbJuridica);
-            pnlTipoPessoa.Controls.Add(lblFisica);
+            pnlTipoPessoa.Controls.Add(rdbFisica);
             pnlTipoPessoa.Location = new Point(440, 80);
             pnlTipoPessoa.Name = "pnlTipoPessoa";
             pnlTipoPessoa.Size = new Size(152, 32);
@@ -318,16 +321,16 @@
             rdbJuridica.Text = "Jurídica";
             rdbJuridica.UseVisualStyleBackColor = true;
             // 
-            // lblFisica
+            // rdbFisica
             // 
-            lblFisica.AutoSize = true;
-            lblFisica.Location = new Point(8, 8);
-            lblFisica.Name = "lblFisica";
-            lblFisica.Size = new Size(54, 19);
-            lblFisica.TabIndex = 0;
-            lblFisica.TabStop = true;
-            lblFisica.Text = "Física";
-            lblFisica.UseVisualStyleBackColor = true;
+            rdbFisica.AutoSize = true;
+            rdbFisica.Location = new Point(8, 8);
+            rdbFisica.Name = "rdbFisica";
+            rdbFisica.Size = new Size(54, 19);
+            rdbFisica.TabIndex = 0;
+            rdbFisica.TabStop = true;
+            rdbFisica.Text = "Física";
+            rdbFisica.UseVisualStyleBackColor = true;
             // 
             // txtTelefone
             // 
@@ -346,6 +349,7 @@
             // lblCelular
             // 
             lblCelular.AutoSize = true;
+            lblCelular.Font = new Font("Segoe UI", 9F);
             lblCelular.Location = new Point(224, 72);
             lblCelular.Name = "lblCelular";
             lblCelular.Size = new Size(44, 15);
@@ -411,53 +415,85 @@
             // 
             // btnNovo
             // 
+            btnNovo.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNovo.ImageIndex = 3;
+            btnNovo.ImageList = imlIcones;
             btnNovo.Location = new Point(16, 336);
             btnNovo.Name = "btnNovo";
-            btnNovo.Size = new Size(88, 32);
+            btnNovo.Size = new Size(72, 32);
             btnNovo.TabIndex = 15;
             btnNovo.Text = "Novo";
+            btnNovo.TextAlign = ContentAlignment.MiddleRight;
             btnNovo.UseVisualStyleBackColor = true;
+            // 
+            // imlIcones
+            // 
+            imlIcones.ColorDepth = ColorDepth.Depth32Bit;
+            imlIcones.ImageStream = (ImageListStreamer)resources.GetObject("imlIcones.ImageStream");
+            imlIcones.TransparentColor = Color.Transparent;
+            imlIcones.Images.SetKeyName(0, "icone-cancelar.png");
+            imlIcones.Images.SetKeyName(1, "icone-editar.png");
+            imlIcones.Images.SetKeyName(2, "icone-excluir.png");
+            imlIcones.Images.SetKeyName(3, "icone-novo.png");
+            imlIcones.Images.SetKeyName(4, "icone-pesquisar.png");
+            imlIcones.Images.SetKeyName(5, "icone-salvar.png");
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(120, 336);
+            btnEditar.ImageAlign = ContentAlignment.TopLeft;
+            btnEditar.ImageIndex = 1;
+            btnEditar.ImageList = imlIcones;
+            btnEditar.Location = new Point(104, 336);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(88, 32);
+            btnEditar.Size = new Size(72, 32);
             btnEditar.TabIndex = 16;
             btnEditar.Text = "Editar";
+            btnEditar.TextAlign = ContentAlignment.MiddleRight;
             btnEditar.UseVisualStyleBackColor = true;
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(224, 336);
+            btnSalvar.ImageAlign = ContentAlignment.TopLeft;
+            btnSalvar.ImageIndex = 5;
+            btnSalvar.ImageList = imlIcones;
+            btnSalvar.Location = new Point(192, 336);
             btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(88, 32);
+            btnSalvar.Size = new Size(72, 32);
             btnSalvar.TabIndex = 17;
             btnSalvar.Text = "Salvar";
+            btnSalvar.TextAlign = ContentAlignment.MiddleRight;
             btnSalvar.UseVisualStyleBackColor = true;
             // 
             // btnExcluir
             // 
-            btnExcluir.Location = new Point(328, 336);
+            btnExcluir.ImageAlign = ContentAlignment.TopLeft;
+            btnExcluir.ImageIndex = 2;
+            btnExcluir.ImageList = imlIcones;
+            btnExcluir.Location = new Point(280, 336);
             btnExcluir.Name = "btnExcluir";
-            btnExcluir.Size = new Size(88, 32);
+            btnExcluir.Size = new Size(80, 32);
             btnExcluir.TabIndex = 18;
             btnExcluir.Text = "Excluir";
+            btnExcluir.TextAlign = ContentAlignment.MiddleRight;
             btnExcluir.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(432, 336);
+            btnCancelar.ImageAlign = ContentAlignment.TopLeft;
+            btnCancelar.ImageIndex = 0;
+            btnCancelar.ImageList = imlIcones;
+            btnCancelar.Location = new Point(376, 336);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(88, 32);
             btnCancelar.TabIndex = 19;
             btnCancelar.Text = "Cancelar";
+            btnCancelar.TextAlign = ContentAlignment.MiddleRight;
             btnCancelar.UseVisualStyleBackColor = true;
             // 
             // lblPesquisar
             // 
             lblPesquisar.AutoSize = true;
-            lblPesquisar.Location = new Point(544, 328);
+            lblPesquisar.Location = new Point(480, 328);
             lblPesquisar.Name = "lblPesquisar";
             lblPesquisar.Size = new Size(57, 15);
             lblPesquisar.TabIndex = 34;
@@ -465,18 +501,19 @@
             // 
             // txtPesquisar
             // 
-            txtPesquisar.Location = new Point(544, 344);
+            txtPesquisar.Location = new Point(480, 344);
             txtPesquisar.Name = "txtPesquisar";
-            txtPesquisar.Size = new Size(216, 23);
+            txtPesquisar.Size = new Size(288, 23);
             txtPesquisar.TabIndex = 20;
             // 
             // btnPesquisar
             // 
-            btnPesquisar.Location = new Point(776, 336);
+            btnPesquisar.ImageIndex = 4;
+            btnPesquisar.ImageList = imlIcones;
+            btnPesquisar.Location = new Point(792, 336);
             btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(88, 32);
+            btnPesquisar.Size = new Size(64, 32);
             btnPesquisar.TabIndex = 21;
-            btnPesquisar.Text = "Pesquisar";
             btnPesquisar.UseVisualStyleBackColor = true;
             // 
             // grbListaClientes
@@ -541,7 +578,7 @@
         private TextBox txtCelular;
         private Label lblTipoPessoa;
         private Panel pnlTipoPessoa;
-        private RadioButton lblFisica;
+        private RadioButton rdbFisica;
         private RadioButton rdbJuridica;
         private TextBox txtNumero;
         private Label lblNumero;
@@ -573,5 +610,6 @@
         private Button btnPesquisar;
         private GroupBox grbListaClientes;
         private DataGridView dgvClientes;
+        private ImageList imlIcones;
     }
 }

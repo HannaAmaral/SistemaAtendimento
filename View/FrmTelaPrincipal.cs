@@ -1,5 +1,6 @@
 using Microsoft.Data.SqlClient;
 using SistemaAtendimento.DataBase;
+using SistemaAtendimento.View;
 
 namespace SistemaAtendimento
 {
@@ -34,7 +35,25 @@ namespace SistemaAtendimento
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           Application.Exit();
+            Application.Exit();
+        }
+
+        private void usuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCadastroUsuario frmCadastroUsuarios = new FrmCadastroUsuario();
+            frmCadastroUsuarios.ShowDialog();
+        }
+
+        private void etapasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCadastroEtapa frmCadastroEtapas = new FrmCadastroEtapa();
+            frmCadastroEtapas.ShowDialog();
+        }
+
+        private void statusAtendimentosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCadastroStatusAtendimento frmCadastroStatusAtendimento = new FrmCadastroStatusAtendimento();
+            frmCadastroStatusAtendimento.ShowDialog();
         }
     }
-}
+}   
