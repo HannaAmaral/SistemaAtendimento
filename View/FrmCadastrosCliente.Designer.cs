@@ -551,6 +551,7 @@
             Controls.Add(grbDadosCliente);
             Name = "FrmCadastrosClientes";
             Text = "Cadastros De Clientes";
+            Load += FrmCadastrosClientes_Load;
             grbDadosCliente.ResumeLayout(false);
             grbDadosCliente.PerformLayout();
             pnlSituacao.ResumeLayout(false);

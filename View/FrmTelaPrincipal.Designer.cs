@@ -33,7 +33,7 @@
             clientesToolStripMenuItem = new ToolStripMenuItem();
             usuárioToolStripMenuItem = new ToolStripMenuItem();
             etapasToolStripMenuItem = new ToolStripMenuItem();
-            statusAtendimentosToolStripMenuItem = new ToolStripMenuItem();
+            SituacaoAtendimentosToolStripMenuItem = new ToolStripMenuItem();
             atendimentosToolStripMenuItem = new ToolStripMenuItem();
             novoAtendimentoToolStripMenuItem = new ToolStripMenuItem();
             consultasToolStripMenuItem = new ToolStripMenuItem();
@@ -53,7 +53,7 @@
             // 
             // cadastroToolStripMenuItem
             // 
-            cadastroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clientesToolStripMenuItem, usuárioToolStripMenuItem, etapasToolStripMenuItem, statusAtendimentosToolStripMenuItem });
+            cadastroToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clientesToolStripMenuItem, usuárioToolStripMenuItem, etapasToolStripMenuItem, SituacaoAtendimentosToolStripMenuItem });
             cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
             cadastroToolStripMenuItem.Size = new Size(66, 20);
             cadastroToolStripMenuItem.Text = "Cadastro";
@@ -61,30 +61,30 @@
             // clientesToolStripMenuItem
             // 
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(184, 22);
+            clientesToolStripMenuItem.Size = new Size(192, 22);
             clientesToolStripMenuItem.Text = "Clientes";
             clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
             // 
             // usuárioToolStripMenuItem
             // 
             usuárioToolStripMenuItem.Name = "usuárioToolStripMenuItem";
-            usuárioToolStripMenuItem.Size = new Size(184, 22);
+            usuárioToolStripMenuItem.Size = new Size(192, 22);
             usuárioToolStripMenuItem.Text = "Usuário";
             usuárioToolStripMenuItem.Click += usuárioToolStripMenuItem_Click;
             // 
             // etapasToolStripMenuItem
             // 
             etapasToolStripMenuItem.Name = "etapasToolStripMenuItem";
-            etapasToolStripMenuItem.Size = new Size(184, 22);
+            etapasToolStripMenuItem.Size = new Size(192, 22);
             etapasToolStripMenuItem.Text = "Etapas";
             etapasToolStripMenuItem.Click += etapasToolStripMenuItem_Click;
             // 
-            // statusAtendimentosToolStripMenuItem
+            // SituacaoAtendimentosToolStripMenuItem
             // 
-            statusAtendimentosToolStripMenuItem.Name = "statusAtendimentosToolStripMenuItem";
-            statusAtendimentosToolStripMenuItem.Size = new Size(184, 22);
-            statusAtendimentosToolStripMenuItem.Text = "Status Atendimentos";
-            statusAtendimentosToolStripMenuItem.Click += statusAtendimentosToolStripMenuItem_Click;
+            SituacaoAtendimentosToolStripMenuItem.Name = "SituacaoAtendimentosToolStripMenuItem";
+            SituacaoAtendimentosToolStripMenuItem.Size = new Size(192, 22);
+            SituacaoAtendimentosToolStripMenuItem.Text = "Situação Atendimento";
+            SituacaoAtendimentosToolStripMenuItem.Click += statusAtendimentosToolStripMenuItem_Click;
             // 
             // atendimentosToolStripMenuItem
             // 
@@ -96,13 +96,13 @@
             // novoAtendimentoToolStripMenuItem
             // 
             novoAtendimentoToolStripMenuItem.Name = "novoAtendimentoToolStripMenuItem";
-            novoAtendimentoToolStripMenuItem.Size = new Size(176, 22);
+            novoAtendimentoToolStripMenuItem.Size = new Size(180, 22);
             novoAtendimentoToolStripMenuItem.Text = "Novo Atendimento";
             // 
             // consultasToolStripMenuItem
             // 
             consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            consultasToolStripMenuItem.Size = new Size(176, 22);
+            consultasToolStripMenuItem.Size = new Size(180, 22);
             consultasToolStripMenuItem.Text = "Consultas";
             // 
             // sistemaToolStripMenuItem
@@ -152,7 +152,7 @@
         private ToolStripMenuItem clientesToolStripMenuItem;
         private ToolStripMenuItem usuárioToolStripMenuItem;
         private ToolStripMenuItem etapasToolStripMenuItem;
-        private ToolStripMenuItem statusAtendimentosToolStripMenuItem;
+        private ToolStripMenuItem SituacaoAtendimentosToolStripMenuItem;
         private ToolStripMenuItem atendimentosToolStripMenuItem;
         private ToolStripMenuItem novoAtendimentoToolStripMenuItem;
         private ToolStripMenuItem consultasToolStripMenuItem;

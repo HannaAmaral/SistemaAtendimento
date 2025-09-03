@@ -22,7 +22,7 @@ namespace SistemaAtendimento.Model
         public string? bairro { get; set; }
         public string? cidade { get; set; }
         public string? estado { get; set; }
-        public int ativo { get; set; }
+        public bool ativo { get; set; }
 
     }
 }
