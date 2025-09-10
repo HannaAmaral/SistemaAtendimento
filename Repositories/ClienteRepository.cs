@@ -39,13 +39,13 @@ namespace SistemaAtendimento.Repositories
                                 Telefone = linhas["telefone"].ToString(),
                                 Celular = linhas["celular"].ToString(),
                                 Cep = linhas["cep"].ToString(),
-                                endereco = linhas["endereco"].ToString(),
-                                numero = linhas["numero"].ToString(),
-                                complemento = linhas["complemento"].ToString(),
-                                bairro = linhas["bairro"].ToString(),
-                                cidade = linhas["cidade"].ToString(),
-                                estado = linhas["estado"].ToString(),
-                                ativo = Convert.ToBoolean(linhas["ativo"])
+                                Endereco = linhas["endereco"].ToString(),
+                                Numero = linhas["numero"].ToString(),
+                                Complemento = linhas["complemento"].ToString(),
+                                Bairro = linhas["bairro"].ToString(),
+                                Cidade = linhas["cidade"].ToString(),
+                                Estado = linhas["estado"].ToString(),
+                                Ativo = Convert.ToBoolean(linhas["ativo"])
                             });   
                         }
                     }
@@ -53,6 +53,35 @@ namespace SistemaAtendimento.Repositories
             }
 
                 return clientes;
+        }
+
+        public void Inserir(Clientes clientes)
+        {
+            using (var conexao = ConexaoDB.GetConexao())
+            {
+                string sql = "INSERT INTO clientes (nome, email, cpf_cnpj, tipo_pessoa, telefone, celular, cep, endereco, numero, complemento, bairro, cidade, estado, ativo) VALUES (@nome, @email, @cpf_cnpj, @tipo_pessoa, @telefone, @celular, @cep, @endereco, @numero, @complemento, @bairro, @cidade, @estado, @ativo)";
+
+                using (var comando = new SqlCommand(sql, conexao))
+                {
+                    comando.Parameters.AddWithValue("@nome", clientes.Nome);
+                    comando.Parameters.AddWithValue("@email", clientes.Email);
+                    comando.Parameters.AddWithValue("@cpf_cnpj", clientes.Cpf_Cnpj);
+                    comando.Parameters.AddWithValue("@tipo_pessoa", clientes.TipoPessoa);
+                    comando.Parameters.AddWithValue("@telefone", clientes.Telefone);
+                    comando.Parameters.AddWithValue("@celular", clientes.Celular);
+                    comando.Parameters.AddWithValue("@cep", clientes.Cep);
+                    comando.Parameters.AddWithValue("@endereco", clientes.Endereco);
+                    comando.Parameters.AddWithValue("@numero", clientes.Numero);
+                    comando.Parameters.AddWithValue("@complemento", clientes.Complemento);
+                    comando.Parameters.AddWithValue("@bairro", clientes.Bairro);
+                    comando.Parameters.AddWithValue("@cidade", clientes.Cidade);
+                    comando.Parameters.AddWithValue("@estado", clientes.Estado);
+                    comando.Parameters.AddWithValue("@ativo", clientes.Ativo);
+
+                    conexao.Open();
+                    comando.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

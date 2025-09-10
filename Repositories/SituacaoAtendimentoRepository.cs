@@ -38,5 +38,22 @@ namespace SistemaAtendimento.Repositories
             }
             return situacaoAtendimento;
         }
+        public void Inserir(SituacaoAtendimento situacaoAtendimento)
+        {
+            using (var conexao = ConexaoDB.GetConexao())
+            {
+                string sql = "INSERT INTO situacaoAtendimento(nome, cor, ativo) VALUES(@nome, @cor, @ativo)";
+
+                using (var comando = new SqlCommand(sql, conexao))
+                {
+                    comando.Parameters.AddWithValue("@nome", situacaoAtendimento.Nome);
+                    comando.Parameters.AddWithValue("@cor", situacaoAtendimento.Cor);
+                    comando.Parameters.AddWithValue("@ativo", situacaoAtendimento.Ativo);
+
+                    conexao.Open();
+                    comando.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }
