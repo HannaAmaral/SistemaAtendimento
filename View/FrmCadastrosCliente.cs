@@ -31,9 +31,30 @@ namespace SistemaAtendimento
             MessageBox.Show(mensagem);
         }
 
-        public void ExibirClientes(List<Clientes> clientes) 
+        public void ExibirClientes(List<Clientes> clientes)
         {
             dgvClientes.DataSource = clientes;
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            Clientes cliente = new Clientes()
+            {
+                Nome = txtNome.Text,
+                Email = txtEmail.Text,
+                Cpf_Cnpj = txtCpfCnpj.Text,
+                TipoPessoa = rdbFisica.Checked ? "Física" : "Jurídica",
+                Telefone = txtTelefone.Text,
+                Celular = txtCelular.Text,
+                Cep = txtCep.Text,
+                Endereco = txtEndereco.Text,
+                Numero = txtNumero.Text,
+                Complemento = txtComplemento.Text,
+                Bairro = txtBairro.Text,
+                Cidade = txtCidade.Text,
+                Estado = cbxEstado.Text,
+                Ativo = rdbAtivo.Checked,
+            };
         }
     }
 }

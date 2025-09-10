@@ -41,7 +41,7 @@ namespace SistemaAtendimento.Repositories
 
             return etapa;
         }
-        public void Inserir(Etapa etapas)
+        public void Inserir(Etapa etapa)
         {
             using (var conexao = ConexaoDB.GetConexao())
             {
@@ -49,9 +49,9 @@ namespace SistemaAtendimento.Repositories
 
                 using (var comando = new SqlCommand(sql, conexao))
                 {
-                    comando.Parameters.AddWithValue("@nome", etapas.Nome);
-                    comando.Parameters.AddWithValue("@ordem", etapas.Ordem);
-                    comando.Parameters.AddWithValue("@ativo", etapas.Ativo);
+                    comando.Parameters.AddWithValue("@nome", etapa.Nome);
+                    comando.Parameters.AddWithValue("@ordem", etapa.Ordem);
+                    comando.Parameters.AddWithValue("@ativo", etapa.Ativo);
 
                     conexao.Open();
                     comando.ExecuteNonQuery();

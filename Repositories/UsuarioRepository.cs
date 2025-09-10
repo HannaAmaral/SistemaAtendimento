@@ -41,7 +41,7 @@ namespace SistemaAtendimento.Repositories
             }
                 return usuario;
         }
-        public void Inserir(Usuarios usuarios)
+        public void Inserir(Usuarios usuario)
         {
             using (var conexao = ConexaoDB.GetConexao())
             {
@@ -49,10 +49,10 @@ namespace SistemaAtendimento.Repositories
 
                 using (var comando = new SqlCommand(sql, conexao))
                 {
-                    comando.Parameters.AddWithValue("@nome", usuarios.Nome);
-                    comando.Parameters.AddWithValue("@email", usuarios.Email);
-                    comando.Parameters.AddWithValue("@senha", usuarios.Senha);
-                    comando.Parameters.AddWithValue("@perfil", usuarios.Perfil);
+                    comando.Parameters.AddWithValue("@nome", usuario.Nome);
+                    comando.Parameters.AddWithValue("@email", usuario.Email);
+                    comando.Parameters.AddWithValue("@senha", usuario.Senha);
+                    comando.Parameters.AddWithValue("@perfil", usuario.Perfil);
 
                     conexao.Open();
                     comando.ExecuteNonQuery();
