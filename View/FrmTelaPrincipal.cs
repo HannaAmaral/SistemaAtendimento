@@ -4,9 +4,9 @@ using SistemaAtendimento.View;
 
 namespace SistemaAtendimento
 {
-    public partial class FrmSistemaAtedimento : Form
+    public partial class FrmSistemaAtendimento : Form
     {
-        public FrmSistemaAtedimento()
+        public FrmSistemaAtendimento()
         {
             InitializeComponent();
         }
@@ -54,6 +54,11 @@ namespace SistemaAtendimento
         {
             FrmCadastroStatusAtendimento frmCadastroStatusAtendimento = new FrmCadastroStatusAtendimento();
             frmCadastroStatusAtendimento.ShowDialog();
+        }
+
+        private void FrmSistemaAtedimento_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }   

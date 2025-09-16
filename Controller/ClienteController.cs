@@ -40,6 +40,7 @@ namespace SistemaAtendimento.Controller
             {
                 _clienteRepository.Inserir(cliente);
                 _frmCadastrosClientes.ExibirMensagem("Cliente cadastrado com sucesso!");
+                ListarClientes();
                 //Atualizar dados do grid
             }
             catch (Exception ex)

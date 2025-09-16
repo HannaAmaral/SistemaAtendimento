@@ -21,11 +21,6 @@ namespace SistemaAtendimento.View
             _usuarioController = new UsuarioController(this);
         }
 
-        private void grbDadosCliente_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void FrmCadastroUsuario_Load(object sender, EventArgs e)
         {
             _usuarioController.ListarUsuarios();

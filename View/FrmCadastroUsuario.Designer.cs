@@ -192,7 +192,6 @@
             grbDadosUsuario.TabIndex = 37;
             grbDadosUsuario.TabStop = false;
             grbDadosUsuario.Text = "Dados do Usuário";
-            grbDadosUsuario.Enter += grbDadosCliente_Enter;
             // 
             // cbxPerfil
             // 

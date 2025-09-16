@@ -240,9 +240,9 @@
             lblCpfCnpj.AutoSize = true;
             lblCpfCnpj.Location = new Point(616, 72);
             lblCpfCnpj.Name = "lblCpfCnpj";
-            lblCpfCnpj.Size = new Size(60, 15);
+            lblCpfCnpj.Size = new Size(28, 15);
             lblCpfCnpj.TabIndex = 19;
-            lblCpfCnpj.Text = "CPF/CNPJ";
+            lblCpfCnpj.Text = "CPF";
             // 
             // txtNumero
             // 
@@ -319,6 +319,7 @@
             rdbJuridica.TabIndex = 1;
             rdbJuridica.Text = "Jurídica";
             rdbJuridica.UseVisualStyleBackColor = true;
+            rdbJuridica.CheckedChanged += rdbJuridica_CheckedChanged;
             // 
             // rdbFisica
             // 
@@ -331,6 +332,7 @@
             rdbFisica.TabStop = true;
             rdbFisica.Text = "Física";
             rdbFisica.UseVisualStyleBackColor = true;
+            rdbFisica.CheckedChanged += rdbFisica_CheckedChanged;
             // 
             // txtTelefone
             // 

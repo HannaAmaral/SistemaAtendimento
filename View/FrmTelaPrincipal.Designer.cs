@@ -1,6 +1,6 @@
 ﻿namespace SistemaAtendimento
 {
-    partial class FrmSistemaAtedimento
+    partial class FrmSistemaAtendimento
     {
         /// <summary>
         ///  Required designer variable.
@@ -96,13 +96,13 @@
             // novoAtendimentoToolStripMenuItem
             // 
             novoAtendimentoToolStripMenuItem.Name = "novoAtendimentoToolStripMenuItem";
-            novoAtendimentoToolStripMenuItem.Size = new Size(180, 22);
+            novoAtendimentoToolStripMenuItem.Size = new Size(176, 22);
             novoAtendimentoToolStripMenuItem.Text = "Novo Atendimento";
             // 
             // consultasToolStripMenuItem
             // 
             consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            consultasToolStripMenuItem.Size = new Size(180, 22);
+            consultasToolStripMenuItem.Size = new Size(176, 22);
             consultasToolStripMenuItem.Text = "Consultas";
             // 
             // sistemaToolStripMenuItem
@@ -139,6 +139,7 @@
             MainMenuStrip = MnuCadastrosClientes;
             Name = "FrmSistemaAtedimento";
             Text = "Sistema de Atendimento";
+            Load += FrmSistemaAtedimento_Load;
             MnuCadastrosClientes.ResumeLayout(false);
             MnuCadastrosClientes.PerformLayout();
             ResumeLayout(false);
