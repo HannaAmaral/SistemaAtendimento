@@ -36,5 +36,10 @@ namespace SistemaAtendimento.View
             dgvUsuario.DataSource = usuarios;
 
         }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

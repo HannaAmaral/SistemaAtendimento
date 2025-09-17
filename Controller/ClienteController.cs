@@ -41,6 +41,8 @@ namespace SistemaAtendimento.Controller
                 _clienteRepository.Inserir(cliente);
                 _frmCadastrosClientes.ExibirMensagem("Cliente cadastrado com sucesso!");
                 ListarClientes();
+
+                _frmCadastrosClientes.DesabilitarCampos(); // Desabilitar campos após salvar
                 //Atualizar dados do grid
             }
             catch (Exception ex)
@@ -48,5 +50,5 @@ namespace SistemaAtendimento.Controller
                 _frmCadastrosClientes.ExibirMensagem($"Erro ao cadastrar o cliente: {ex.Message}");
             }
         }
-    }
+    }   
 }

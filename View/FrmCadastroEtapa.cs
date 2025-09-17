@@ -15,7 +15,7 @@ namespace SistemaAtendimento.View
     public partial class FrmCadastroEtapa : Form
     {
         private EtapaController _etapaController;
-     
+
 
         public FrmCadastroEtapa()
         {
@@ -33,9 +33,51 @@ namespace SistemaAtendimento.View
             MessageBox.Show(mensagem);
         }
 
-        public void ExibirEtapas(List<Etapa>etapas)
+        public void ExibirEtapas(List<Etapa> etapas)
         {
             dgvEtapas.DataSource = etapas;
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            Etapa etapa = new Etapa()
+            {
+                Nome = txtNome.Text,
+                Ordem = Convert.ToInt32(txtOrdem.Text),
+                Ativo = rdbAtivo.Checked,
+            };
+            if (!ValidarDados(etapa))
+                return;
+            _etapaController.Salvar(etapa);
+
+        }
+
+        public bool ValidarDados(Etapa etapa)
+        {
+
+            if (string.IsNullOrWhiteSpace(txtNome.Text))
+            {
+                ExibirMensagem("O Campo Nome obrigatório");
+                txtNome.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtOrdem.Text))
+            {
+                ExibirMensagem("O Campo Ordem obrigatório");
+                txtOrdem.Focus();
+                return false;
+            }
+
+            if (!int.TryParse(txtOrdem.Text, out int ordem) || ordem <= 0)
+            {
+                ExibirMensagem("O Campo Ordem deve ser um número inteiro positivo.");
+                txtOrdem.Focus();
+                return false;
+            }
+
+            
+            return true;
         }
     }
 }

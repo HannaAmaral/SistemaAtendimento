@@ -83,7 +83,7 @@ namespace SistemaAtendimento
                     ExibirMensagem("O Campo Cpf obrigatório");
                 else
                     ExibirMensagem("O Campo Cnpj obrigatório");
-   
+
                 txtCpfCnpj.Focus();
                 return false;
             }
@@ -140,6 +140,90 @@ namespace SistemaAtendimento
         private void rdbFisica_CheckedChanged(object sender, EventArgs e)
         {
             lblCpfCnpj.Text = "CPF";
+        }
+
+        private void HabilitarCampos()
+        {
+            txtNome.ReadOnly = false;
+            txtEmail.ReadOnly = false;
+            txtTelefone.ReadOnly = false;
+            txtCelular.ReadOnly = false;
+            pnlTipoPessoa.Enabled = true;
+            txtCpfCnpj.ReadOnly = false;
+            txtCep.ReadOnly = false;
+            txtEndereco.ReadOnly = false;
+            txtNumero.ReadOnly = false;
+            txtBairro.ReadOnly = false;
+            txtComplemento.ReadOnly = false;
+            txtCidade.ReadOnly = false;
+            cbxEstado.Enabled = true;
+            pnlSituacao.Enabled = true;
+
+            btnNovo.Enabled = false;
+            btnSalvar.Enabled = true;
+            btnCancelar.Enabled = true;
+        }
+
+        private void LimparCampos()
+        {
+            txtCodigo.Clear();
+            txtNome.Clear();
+            txtEmail.Clear();
+            txtTelefone.Clear();
+            txtCelular.Clear();
+            txtCpfCnpj.Clear();
+            txtCep.Clear();
+            txtEndereco.Clear();
+            txtNumero.Clear();
+            txtBairro.Clear();
+            txtComplemento.Clear();
+            txtCidade.Clear();
+            rdbFisica.Checked = true;
+            rdbJuridica.Checked = false;
+            rdbAtivo.Checked = true;
+            rdbInativo.Checked = false;
+            cbxEstado.Text = "";
+
+        }
+
+        public void DesabilitarCampos()
+        {
+            LimparCampos();
+            txtNome.ReadOnly = true;
+            txtEmail.ReadOnly = true;
+            txtTelefone.ReadOnly = true;
+            txtCelular.ReadOnly = true;
+            pnlTipoPessoa.Enabled = false;
+            txtCpfCnpj.ReadOnly = true;
+            txtCep.ReadOnly = true;
+            txtEndereco.ReadOnly = true;
+            txtNumero.ReadOnly = true;
+            txtBairro.ReadOnly = true;
+            txtComplemento.ReadOnly = true;
+            txtCidade.ReadOnly = true;
+            cbxEstado.Enabled = false;
+            pnlSituacao.Enabled = false;
+
+            btnNovo.Enabled = true;
+            btnSalvar.Enabled = false;
+            btnCancelar.Enabled = false;
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            HabilitarCampos();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DesabilitarCampos();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
         }
     }
 }
