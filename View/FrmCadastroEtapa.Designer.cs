@@ -72,9 +72,13 @@
             // 
             dgvEtapas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEtapas.Location = new Point(8, 16);
+            dgvEtapas.MultiSelect = false;
             dgvEtapas.Name = "dgvEtapas";
+            dgvEtapas.ReadOnly = true;
+            dgvEtapas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvEtapas.Size = new Size(832, 216);
             dgvEtapas.TabIndex = 0;
+            dgvEtapas.CellDoubleClick += dgvEtapas_CellDoubleClick;
             // 
             // btnPesquisar
             // 
@@ -109,6 +113,7 @@
             // 
             // btnCancelar
             // 
+            btnCancelar.Enabled = false;
             btnCancelar.ImageAlign = ContentAlignment.TopLeft;
             btnCancelar.ImageIndex = 0;
             btnCancelar.ImageList = imlIcones;
@@ -119,6 +124,7 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.TextAlign = ContentAlignment.MiddleRight;
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // txtPesquisar
             // 
@@ -129,6 +135,7 @@
             // 
             // btnExcluir
             // 
+            btnExcluir.Enabled = false;
             btnExcluir.ImageAlign = ContentAlignment.TopLeft;
             btnExcluir.ImageIndex = 2;
             btnExcluir.ImageList = imlIcones;
@@ -139,9 +146,11 @@
             btnExcluir.Text = "Excluir";
             btnExcluir.TextAlign = ContentAlignment.MiddleRight;
             btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // btnSalvar
             // 
+            btnSalvar.Enabled = false;
             btnSalvar.ImageAlign = ContentAlignment.TopLeft;
             btnSalvar.ImageIndex = 5;
             btnSalvar.ImageList = imlIcones;
@@ -156,6 +165,7 @@
             // 
             // btnEditar
             // 
+            btnEditar.Enabled = false;
             btnEditar.ImageAlign = ContentAlignment.TopLeft;
             btnEditar.ImageIndex = 1;
             btnEditar.ImageList = imlIcones;
@@ -166,6 +176,7 @@
             btnEditar.Text = "Editar";
             btnEditar.TextAlign = ContentAlignment.MiddleRight;
             btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnNovo
             // 
@@ -179,6 +190,7 @@
             btnNovo.Text = "Novo";
             btnNovo.TextAlign = ContentAlignment.MiddleRight;
             btnNovo.UseVisualStyleBackColor = true;
+            btnNovo.Click += btnNovo_Click;
             // 
             // grbDadosEtapa
             // 
@@ -201,6 +213,7 @@
             // 
             pnlSituacao.Controls.Add(rdbInativo);
             pnlSituacao.Controls.Add(rdbAtivo);
+            pnlSituacao.Enabled = false;
             pnlSituacao.Location = new Point(320, 80);
             pnlSituacao.Name = "pnlSituacao";
             pnlSituacao.Size = new Size(128, 32);
@@ -241,6 +254,7 @@
             // 
             txtOrdem.Location = new Point(8, 88);
             txtOrdem.Name = "txtOrdem";
+            txtOrdem.ReadOnly = true;
             txtOrdem.Size = new Size(296, 23);
             txtOrdem.TabIndex = 3;
             // 
@@ -257,6 +271,7 @@
             // 
             txtNome.Location = new Point(176, 32);
             txtNome.Name = "txtNome";
+            txtNome.ReadOnly = true;
             txtNome.Size = new Size(648, 23);
             txtNome.TabIndex = 1;
             // 
@@ -264,6 +279,7 @@
             // 
             txtCodigo.Location = new Point(8, 32);
             txtCodigo.Name = "txtCodigo";
+            txtCodigo.ReadOnly = true;
             txtCodigo.Size = new Size(152, 23);
             txtCodigo.TabIndex = 0;
             // 

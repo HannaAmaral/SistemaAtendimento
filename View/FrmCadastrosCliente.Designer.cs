@@ -291,6 +291,7 @@
             txtCep.ReadOnly = true;
             txtCep.Size = new Size(184, 23);
             txtCep.TabIndex = 7;
+            txtCep.Leave += txtCep_Leave;
             // 
             // lblEndereco
             // 
@@ -469,6 +470,7 @@
             btnEditar.Text = "Editar";
             btnEditar.TextAlign = ContentAlignment.MiddleRight;
             btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnSalvar
             // 
@@ -557,9 +559,13 @@
             // 
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Location = new Point(8, 16);
+            dgvClientes.MultiSelect = false;
             dgvClientes.Name = "dgvClientes";
+            dgvClientes.ReadOnly = true;
+            dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvClientes.Size = new Size(832, 216);
             dgvClientes.TabIndex = 0;
+            dgvClientes.CellDoubleClick += dgvClientes_CellDoubleClick;
             // 
             // FrmCadastrosClientes
             // 

@@ -42,6 +42,8 @@
             btnEditar = new Button();
             btnNovo = new Button();
             grbDadosUsuario = new GroupBox();
+            lblEmail = new Label();
+            txtEmail = new TextBox();
             cbxPerfil = new ComboBox();
             txtSenha = new TextBox();
             lblSenha = new Label();
@@ -72,6 +74,7 @@
             dgvUsuario.Name = "dgvUsuario";
             dgvUsuario.Size = new Size(832, 216);
             dgvUsuario.TabIndex = 0;
+            dgvUsuario.CellContentDoubleClick += dgvUsuario_CellContentDoubleClick;
             // 
             // btnPesquisar
             // 
@@ -136,6 +139,7 @@
             btnExcluir.Text = "Excluir";
             btnExcluir.TextAlign = ContentAlignment.MiddleRight;
             btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // btnSalvar
             // 
@@ -179,6 +183,8 @@
             // 
             // grbDadosUsuario
             // 
+            grbDadosUsuario.Controls.Add(lblEmail);
+            grbDadosUsuario.Controls.Add(txtEmail);
             grbDadosUsuario.Controls.Add(cbxPerfil);
             grbDadosUsuario.Controls.Add(txtSenha);
             grbDadosUsuario.Controls.Add(lblSenha);
@@ -194,10 +200,28 @@
             grbDadosUsuario.TabStop = false;
             grbDadosUsuario.Text = "Dados do Usuário";
             // 
+            // lblEmail
+            // 
+            lblEmail.AutoSize = true;
+            lblEmail.Location = new Point(320, 72);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(41, 15);
+            lblEmail.TabIndex = 9;
+            lblEmail.Text = "E-mail";
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(320, 88);
+            txtEmail.Name = "txtEmail";
+            txtEmail.ReadOnly = true;
+            txtEmail.Size = new Size(152, 23);
+            txtEmail.TabIndex = 8;
+            // 
             // cbxPerfil
             // 
+            cbxPerfil.Enabled = false;
             cbxPerfil.FormattingEnabled = true;
-            cbxPerfil.Location = new Point(328, 88);
+            cbxPerfil.Location = new Point(488, 88);
             cbxPerfil.Name = "cbxPerfil";
             cbxPerfil.Size = new Size(208, 23);
             cbxPerfil.TabIndex = 7;
@@ -206,6 +230,7 @@
             // 
             txtSenha.Location = new Point(8, 88);
             txtSenha.Name = "txtSenha";
+            txtSenha.ReadOnly = true;
             txtSenha.Size = new Size(296, 23);
             txtSenha.TabIndex = 3;
             // 
@@ -222,6 +247,7 @@
             // 
             txtNome.Location = new Point(176, 32);
             txtNome.Name = "txtNome";
+            txtNome.ReadOnly = true;
             txtNome.Size = new Size(648, 23);
             txtNome.TabIndex = 1;
             // 
@@ -229,13 +255,14 @@
             // 
             txtCodigo.Location = new Point(8, 32);
             txtCodigo.Name = "txtCodigo";
+            txtCodigo.ReadOnly = true;
             txtCodigo.Size = new Size(152, 23);
             txtCodigo.TabIndex = 0;
             // 
             // lblPerfil
             // 
             lblPerfil.AutoSize = true;
-            lblPerfil.Location = new Point(328, 72);
+            lblPerfil.Location = new Point(488, 72);
             lblPerfil.Name = "lblPerfil";
             lblPerfil.Size = new Size(34, 15);
             lblPerfil.TabIndex = 2;
@@ -307,5 +334,7 @@
         private Label lblCodigo;
         private ComboBox cbxPerfil;
         private ImageList imlIcones;
+        private TextBox txtEmail;
+        private Label lblEmail;
     }
 }

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Azure;
+using Newtonsoft.Json;
 using SistemaAtendimento.Controller;
 using SistemaAtendimento.Model;
 
@@ -58,7 +60,19 @@ namespace SistemaAtendimento
 
             if (!ValidarDados(cliente))
                 return;
-            _clienteController.Salvar(cliente);
+
+            if (String.IsNullOrEmpty(txtCodigo.Text))
+            {
+                _clienteController.Salvar(cliente);
+            }
+            else
+            {
+                cliente.Id = Convert.ToInt32(txtCodigo.Text);
+
+                _clienteController.Atualizar(cliente);
+            }
+
+
         }
         public bool ValidarDados(Clientes clientes)
         {
@@ -223,7 +237,107 @@ namespace SistemaAtendimento
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            LimparCampos();
+            if (string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                ExibirMensagem("Selecione um Cliente");
+                return;
+            }
+
+            DialogResult resultado = MessageBox.Show("Deseja excluir este Cliente?",
+                "Confirmação",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (resultado == DialogResult.Yes)
+            {
+                int id = Convert.ToInt32(txtCodigo.Text);
+                _clienteController.Excluir(id);
+            }
+        }
+
+        //async = executa de forma assincrona (por baixo dos pano)
+        private async Task BuscarEnderecoPorCep(string cep)
+        {
+            try
+            {
+                cep = cep.Replace("-", "").Trim();
+                using (HttpClient client = new HttpClient())
+                {
+                    string url = $"https://viacep.com.br/ws/{cep}/json/";
+
+                    var response = await client.GetAsync(url);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string json = await
+                            response.Content.ReadAsStringAsync();
+
+                        dynamic? dadosEndereco = JsonConvert.DeserializeObject(json);
+
+                        txtEndereco.Text = dadosEndereco?.logradouro;
+                        txtBairro.Text = dadosEndereco?.bairro;
+                        txtCidade.Text = dadosEndereco?.localidade;
+                        cbxEstado.Text = dadosEndereco?.uf;
+
+                    }
+                    else 
+                    {
+                        ExibirMensagem("CEP não encontrado.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExibirMensagem($"Erro ao buscar o endereço: {ex.Message}");
+            }
+        }
+
+        private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow LinhaSelecionada = dgvClientes.Rows[e.RowIndex];
+
+                txtCodigo.Text = LinhaSelecionada.Cells["Id"].Value.ToString();
+                txtNome.Text = LinhaSelecionada.Cells["Nome"].Value.ToString();
+                txtEmail.Text = LinhaSelecionada.Cells["Email"].Value.ToString();
+                txtCpfCnpj.Text = LinhaSelecionada.Cells["Cpf_Cnpj"].Value.ToString();
+                txtTelefone.Text = LinhaSelecionada.Cells["Telefone"].Value.ToString();
+                txtCelular.Text = LinhaSelecionada.Cells["Celular"].Value.ToString();
+                txtCep.Text = LinhaSelecionada.Cells["Cep"].Value.ToString();
+                txtEndereco.Text = LinhaSelecionada.Cells["Endereco"].Value.ToString();
+                txtNumero.Text = LinhaSelecionada.Cells["Numero"].Value.ToString();
+                txtComplemento.Text = LinhaSelecionada.Cells["Complemento"].Value.ToString();
+                txtBairro.Text = LinhaSelecionada.Cells["Bairro"].Value.ToString();
+                txtCidade.Text = LinhaSelecionada.Cells["Cidade"].Value.ToString();
+                cbxEstado.Text = LinhaSelecionada.Cells["Estado"].Value.ToString();
+
+                rdbFisica.Checked = LinhaSelecionada.Cells["TipoPessoa"].Value.ToString() == "F";
+                rdbJuridica.Checked = LinhaSelecionada.Cells["TipoPessoa"].Value.ToString() == "J";
+
+                rdbAtivo.Checked = Convert.ToBoolean(LinhaSelecionada.Cells["Ativo"].Value);
+                rdbInativo.Checked = !Convert.ToBoolean(LinhaSelecionada.Cells["Ativo"].Value);
+
+                btnEditar.Enabled = true;
+                btnNovo.Enabled = false;
+                btnExcluir.Enabled = true;
+                btnCancelar.Enabled = true;
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            HabilitarCampos();
+            btnEditar.Enabled = false;
+        }
+
+        private async void txtCep_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtCep.Text))
+            {
+                await BuscarEnderecoPorCep(txtCep.Text);
+
+                
+            }
         }
     }
 }
