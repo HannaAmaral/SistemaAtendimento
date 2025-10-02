@@ -530,13 +530,11 @@
             // 
             txtPesquisar.Location = new Point(480, 344);
             txtPesquisar.Name = "txtPesquisar";
-            txtPesquisar.ReadOnly = true;
             txtPesquisar.Size = new Size(288, 23);
             txtPesquisar.TabIndex = 20;
             // 
             // btnPesquisar
             // 
-            btnPesquisar.Enabled = false;
             btnPesquisar.ImageIndex = 4;
             btnPesquisar.ImageList = imlIcones;
             btnPesquisar.Location = new Point(792, 336);
@@ -544,6 +542,7 @@
             btnPesquisar.Size = new Size(64, 32);
             btnPesquisar.TabIndex = 21;
             btnPesquisar.UseVisualStyleBackColor = true;
+            btnPesquisar.Click += btnPesquisar_Click;
             // 
             // grbListaClientes
             // 

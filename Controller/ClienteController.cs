@@ -19,11 +19,11 @@ namespace SistemaAtendimento.Controller
             _clienteRepository = new ClienteRepository(); // Inicializa o repositório de clientes
         }
 
-        public void ListarClientes() // Método para listar clientes
+        public void ListarClientes(string termo = "") // Método para listar clientes
         {
             try //o comando é executado, mas se der erro jogar para baixo
             {
-                var ListarClientes = _clienteRepository.Listar();
+                var ListarClientes = _clienteRepository.Listar(termo);
                 _frmCadastrosClientes.ExibirClientes(ListarClientes);  
             }
             catch (Exception ex) //se ocorrer erro vem pra aqui

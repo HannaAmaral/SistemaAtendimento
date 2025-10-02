@@ -172,6 +172,7 @@ namespace SistemaAtendimento
             txtCidade.ReadOnly = false;
             cbxEstado.Enabled = true;
             pnlSituacao.Enabled = true;
+            
 
             btnNovo.Enabled = false;
             btnSalvar.Enabled = true;
@@ -260,28 +261,45 @@ namespace SistemaAtendimento
             try
             {
                 cep = cep.Replace("-", "").Trim();
+
+                if (string.IsNullOrWhiteSpace(cep) || cep.Length != 8 || !cep.All(char.IsDigit))
+                {
+                    ExibirMensagem("CEP inválido. Digite um CEP com 8 números.");
+                    return;
+                }
+
                 using (HttpClient client = new HttpClient())
                 {
                     string url = $"https://viacep.com.br/ws/{cep}/json/";
-
                     var response = await client.GetAsync(url);
 
                     if (response.IsSuccessStatusCode)
                     {
-                        string json = await
-                            response.Content.ReadAsStringAsync();
-
+                        string json = await response.Content.ReadAsStringAsync();
                         dynamic? dadosEndereco = JsonConvert.DeserializeObject(json);
+
+                        if (dadosEndereco != null && dadosEndereco.erro == true)
+                        {
+                            ExibirMensagem("CEP não encontrado.");
+                            return;
+                        }
+
+                        if (string.IsNullOrEmpty((string?)dadosEndereco?.logradouro) &&
+                            string.IsNullOrEmpty((string?)dadosEndereco?.bairro) &&
+                            string.IsNullOrEmpty((string?)dadosEndereco?.localidade))
+                        {
+                            ExibirMensagem("CEP não encontrado ou inválido.");
+                            return;
+                        }
 
                         txtEndereco.Text = dadosEndereco?.logradouro;
                         txtBairro.Text = dadosEndereco?.bairro;
                         txtCidade.Text = dadosEndereco?.localidade;
                         cbxEstado.Text = dadosEndereco?.uf;
-
                     }
-                    else 
+                    else
                     {
-                        ExibirMensagem("CEP não encontrado.");
+                        ExibirMensagem("Erro ao consultar o CEP.");
                     }
                 }
             }
@@ -336,8 +354,14 @@ namespace SistemaAtendimento
             {
                 await BuscarEnderecoPorCep(txtCep.Text);
 
-                
+
             }
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            string termo = txtPesquisar.Text.Trim();
+            _clienteController.ListarClientes(termo);
         }
     }
 }

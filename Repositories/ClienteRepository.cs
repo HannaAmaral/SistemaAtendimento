@@ -13,16 +13,26 @@ namespace SistemaAtendimento.Repositories
     {
         //quero que retorne uma lista de clientes
 
-        public List<Clientes> Listar()
+        public List<Clientes> Listar(string termo = "")
         {
             var clientes = new List<Clientes>(); //cria a lista vazia
 
             using (var conexao = ConexaoDB.GetConexao())
             {
+
                 string sql = "SELECT * FROM clientes";//comando que quero executar no banco de dados
 
+                if (!string.IsNullOrEmpty(termo))
+                {
+                    sql = "SELECT * FROM clientes WHERE nome LIKE @termo OR email LIKE @termo";
+                }
                 using (var comando = new SqlCommand(sql, conexao))
                 {
+                    if (!string.IsNullOrEmpty(termo))
+                    {
+                        comando.Parameters.AddWithValue("termo", "%" + termo + "%");
+                    }
+
                     conexao.Open();//Abre a conexao com o banco de dados
 
                     using (var linhas = comando.ExecuteReader())
