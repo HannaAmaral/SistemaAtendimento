@@ -33,14 +33,14 @@ namespace SistemaAtendimento.View
             MessageBox.Show(mensagem);
         }
 
-        public void ExibirEtapas(List<Etapa> etapas)
+        public void ExibirEtapas(List<Etapas> etapas)
         {
             dgvEtapas.DataSource = etapas;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            Etapa etapa = new Etapa()
+            Etapas etapa = new Etapas()
             {
                 Nome = txtNome.Text,
                 Ordem = Convert.ToInt32(txtOrdem.Text),
@@ -60,7 +60,7 @@ namespace SistemaAtendimento.View
             }
         }
 
-        public bool ValidarDados(Etapa etapa)
+        public bool ValidarDados(Etapas etapa)
         {
 
             if (string.IsNullOrWhiteSpace(txtNome.Text))

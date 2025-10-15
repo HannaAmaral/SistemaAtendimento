@@ -31,7 +31,7 @@ namespace SistemaAtendimento.View
             MessageBox.Show(mensagem);
         }
 
-        public void ExibirUsuarios(List<Usuario> usuarios)
+        public void ExibirUsuarios(List<Usuarios> usuarios)
         {
             dgvUsuario.DataSource = usuarios;
 
@@ -39,7 +39,7 @@ namespace SistemaAtendimento.View
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            Usuario usuario = new Usuario()
+            Usuarios usuario = new Usuarios()
             {
                 Nome = txtNome.Text,
                 Email = txtEmail.Text,
@@ -57,7 +57,7 @@ namespace SistemaAtendimento.View
                 _usuarioController.Atualizar(usuario);
             }
         }
-        public bool ValidarDados(Usuario usuarios)
+        public bool ValidarDados(Usuarios usuarios)
         {
             if (string.IsNullOrEmpty(usuarios.Nome))
             {

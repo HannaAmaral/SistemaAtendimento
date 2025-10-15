@@ -33,7 +33,7 @@ namespace SistemaAtendimento.Controller
             }
         }
 
-        public void Salvar(Etapa etapa)
+        public void Salvar(Etapas etapa)
         {
             try
             {
@@ -49,7 +49,7 @@ namespace SistemaAtendimento.Controller
             }
         }
 
-        public void Atualizar(Etapa etapa)
+        public void Atualizar(Etapas etapa)
         {
             try
             {

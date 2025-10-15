@@ -96,14 +96,16 @@
             // novoAtendimentoToolStripMenuItem
             // 
             novoAtendimentoToolStripMenuItem.Name = "novoAtendimentoToolStripMenuItem";
-            novoAtendimentoToolStripMenuItem.Size = new Size(176, 22);
+            novoAtendimentoToolStripMenuItem.Size = new Size(180, 22);
             novoAtendimentoToolStripMenuItem.Text = "Novo Atendimento";
+            novoAtendimentoToolStripMenuItem.Click += novoAtendimentoToolStripMenuItem_Click;
             // 
             // consultasToolStripMenuItem
             // 
             consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            consultasToolStripMenuItem.Size = new Size(176, 22);
+            consultasToolStripMenuItem.Size = new Size(180, 22);
             consultasToolStripMenuItem.Text = "Consultas";
+            consultasToolStripMenuItem.Click += consultasToolStripMenuItem_Click;
             // 
             // sistemaToolStripMenuItem
             // 
@@ -129,7 +131,7 @@
             btnConexao.UseVisualStyleBackColor = true;
             btnConexao.Click += btnConexao_Click;
             // 
-            // FrmSistemaAtedimento
+            // FrmSistemaAtendimento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -137,7 +139,7 @@
             Controls.Add(btnConexao);
             Controls.Add(MnuCadastrosClientes);
             MainMenuStrip = MnuCadastrosClientes;
-            Name = "FrmSistemaAtedimento";
+            Name = "FrmSistemaAtendimento";
             Text = "Sistema de Atendimento";
             Load += FrmSistemaAtedimento_Load;
             MnuCadastrosClientes.ResumeLayout(false);

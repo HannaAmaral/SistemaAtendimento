@@ -11,9 +11,9 @@ namespace SistemaAtendimento.Repositories
 {
     public class UsuarioRepository
     {
-        public List<Usuario> Listar()
+        public List<Usuarios> Listar()
         {
-            var usuario = new List<Usuario>();
+            var usuario = new List<Usuarios>();
 
             using (var conexao = ConexaoDB.GetConexao())
             {
@@ -27,7 +27,7 @@ namespace SistemaAtendimento.Repositories
                     {
                         while (linhas.Read())
                         {
-                            usuario.Add(new Usuario()
+                            usuario.Add(new Usuarios()
                             {
                                 Id = Convert.ToInt32(linhas["id"]),
                                 Nome = linhas["nome"].ToString(),
@@ -41,7 +41,7 @@ namespace SistemaAtendimento.Repositories
             }
             return usuario;
         }
-        public void Inserir(Usuario usuario)
+        public void Inserir(Usuarios usuario)
         {
             using (var conexao = ConexaoDB.GetConexao())
             {
@@ -61,7 +61,7 @@ namespace SistemaAtendimento.Repositories
             }
         }
 
-        public void Atualizar(Usuario usuario)
+        public void Atualizar(Usuarios usuario)
         {
             using (var conexao = ConexaoDB.GetConexao())
             {

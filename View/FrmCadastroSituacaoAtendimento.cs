@@ -26,7 +26,7 @@ namespace SistemaAtendimento.View
             MessageBox.Show(mensagem);
         }
 
-        public void ExibirSituacaoAtendimento(List<SituacaoAtendimento> SituacaoAtendimento)
+        public void ExibirSituacaoAtendimento(List<SituacaoAtendimentos> SituacaoAtendimento)
         {
             dgvSituacaoAtendimento.DataSource = SituacaoAtendimento;
         }

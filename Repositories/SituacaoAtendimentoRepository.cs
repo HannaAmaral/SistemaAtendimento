@@ -11,9 +11,9 @@ namespace SistemaAtendimento.Repositories
 {
     public class SituacaoAtendimentoRepository
     {
-        public List<SituacaoAtendimento> Listar()
+        public List<SituacaoAtendimentos> Listar()
         {
-            var situacaoAtendimento = new List<SituacaoAtendimento>();
+            var situacaoAtendimento = new List<SituacaoAtendimentos>();
 
             using (var conexao = ConexaoDB.GetConexao())
             {
@@ -25,7 +25,7 @@ namespace SistemaAtendimento.Repositories
                     {
                         while (linhas.Read())
                         {
-                            situacaoAtendimento.Add(new SituacaoAtendimento()
+                            situacaoAtendimento.Add(new SituacaoAtendimentos()
                             {
                                 Id = Convert.ToInt32(linhas["id"]),
                                 Nome = linhas["nome"].ToString(),
@@ -38,7 +38,7 @@ namespace SistemaAtendimento.Repositories
             }
             return situacaoAtendimento;
         }
-        public void Inserir(SituacaoAtendimento situacaoAtendimento)
+        public void Inserir(SituacaoAtendimentos situacaoAtendimento)
         {
             using (var conexao = ConexaoDB.GetConexao())
             {

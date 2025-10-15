@@ -11,9 +11,9 @@ namespace SistemaAtendimento.Repositories
 {
     public class EtapaRepository
     {
-        public List<Etapa> Listar()
+        public List<Etapas> Listar()
         {
-            var etapa = new List<Etapa>();
+            var etapa = new List<Etapas>();
 
             using (var conexao = ConexaoDB.GetConexao())
             {
@@ -27,7 +27,7 @@ namespace SistemaAtendimento.Repositories
                     {
                         while (linhas.Read())
                         {
-                            etapa.Add(new Etapa()
+                            etapa.Add(new Etapas()
                             {
                                 Id = Convert.ToInt32(linhas["id"]),
                                 Nome = linhas["nome"].ToString(),
@@ -41,7 +41,7 @@ namespace SistemaAtendimento.Repositories
 
             return etapa;
         }
-        public void Inserir(Etapa etapa)
+        public void Inserir(Etapas etapa)
         {
             using (var conexao = ConexaoDB.GetConexao())
             {
@@ -59,7 +59,7 @@ namespace SistemaAtendimento.Repositories
             }
         }
 
-        public void Atualizar(Etapa etapa)
+        public void Atualizar(Etapas etapa)
         {
             using (var conexao = ConexaoDB.GetConexao())
             {

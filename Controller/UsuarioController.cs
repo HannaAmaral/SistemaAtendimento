@@ -32,7 +32,7 @@ namespace SistemaAtendimento.Controller
             }
         }
 
-        public void Salvar(Usuario usuarios)
+        public void Salvar(Usuarios usuarios)
         {
             try
             {
@@ -49,7 +49,7 @@ namespace SistemaAtendimento.Controller
             }
         }
 
-        public void Atualizar(Usuario usuario)
+        public void Atualizar(Usuarios usuario)
         {
             try
             {
