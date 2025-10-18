@@ -94,6 +94,7 @@
             dgvConsultaAtendimento.Name = "dgvConsultaAtendimento";
             dgvConsultaAtendimento.Size = new Size(768, 384);
             dgvConsultaAtendimento.TabIndex = 5;
+            dgvConsultaAtendimento.CellContentClick += dgvConsultaAtendimento_CellContentClick;
             // 
             // FrmConsultaAtendimento
             // 
@@ -103,6 +104,7 @@
             Controls.Add(grbFiltro);
             Name = "FrmConsultaAtendimento";
             Text = "Consulta de Atendimento";
+            Load += FrmConsultaAtendimento_Load;
             grbFiltro.ResumeLayout(false);
             grbFiltro.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvConsultaAtendimento).EndInit();
