@@ -21,11 +21,6 @@ namespace SistemaAtendimento
             _consultaAtendimentoController = new ConsultaAtendimentoController(this);
         }
 
-        private void btnPesquisar_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void FrmConsultaAtendimento_Load(object sender, EventArgs e)
         {
             _consultaAtendimentoController.ListarAtendimento();
@@ -41,6 +36,42 @@ namespace SistemaAtendimento
         }
 
         private void dgvConsultaAtendimento_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void grbFiltro_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            string termo = txtFiltro.Text.Trim();
+            string filtro = cbxFiltro.Text.Trim();
+
+            if (string.IsNullOrEmpty(filtro))
+            {
+                MessageBox.Show("Selecione um filtro.");
+                return;
+            }
+
+            string condicao;
+            if (filtro == "Código do Atendimento") condicao = "codigo";
+            else if (filtro == "Nome") condicao = "nome";
+            else if (filtro == "CPF") condicao = "cpf";
+            else if (filtro == "CNPJ") condicao = "cnpj";
+            else condicao = filtro.ToLower();
+
+            _consultaAtendimentoController.ListarAtendimento(termo, condicao);
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxFiltro_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

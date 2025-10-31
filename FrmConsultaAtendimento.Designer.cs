@@ -59,6 +59,7 @@
             grbFiltro.TabIndex = 5;
             grbFiltro.TabStop = false;
             grbFiltro.Text = "Filtrar por:";
+            grbFiltro.Enter += grbFiltro_Enter;
             // 
             // cbxFiltro
             // 
@@ -68,6 +69,7 @@
             cbxFiltro.Name = "cbxFiltro";
             cbxFiltro.Size = new Size(168, 23);
             cbxFiltro.TabIndex = 8;
+            cbxFiltro.SelectedIndexChanged += cbxFiltro_SelectedIndexChanged;
             // 
             // btnPesquisar
             // 
@@ -80,6 +82,7 @@
             btnPesquisar.TabIndex = 7;
             btnPesquisar.Text = "         Pesquisar";
             btnPesquisar.UseVisualStyleBackColor = true;
+            btnPesquisar.Click += btnPesquisar_Click;
             // 
             // txtFiltro
             // 
@@ -87,6 +90,7 @@
             txtFiltro.Name = "txtFiltro";
             txtFiltro.Size = new Size(408, 23);
             txtFiltro.TabIndex = 6;
+            txtFiltro.TextChanged += txtFiltro_TextChanged;
             // 
             // dgvConsultaAtendimento
             // 

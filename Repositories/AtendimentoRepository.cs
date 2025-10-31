@@ -26,25 +26,32 @@ namespace SistemaAtendimento.Repositories
             
             if (!string.IsNullOrEmpty(termo) && !string.IsNullOrEmpty(condicao))
             {
-                if (condicao == "Código do Atendimento")
-                {
-                    sql += " WHERE id = @termo";
+                    if (condicao == "codigo")
+                    {
+                        sql += " WHERE a.id = @termo";
+                    }
+                    else if (condicao == "nome")
+                    {
+                        sql += " WHERE c.nome LIKE @termo";
+                    }
+                    else if (condicao == "cpf")
+                    {
+                        sql += " WHERE c.cpf_cnpj = @termo";
+                    }
+                    else if (condicao == "cnpj")
+                    {
+                        sql += " WHERE c.cpf_cnpj = @termo";
+                    }
                 }
-                else if (condicao == "Nome do Cliente")
-                {
-                    sql += " WHERE c.nome LIKE %@termo%";
-                }
-                else
-                {
-                    sql += " WHERE c.cpf_cnpj = @termo";
-                }
-            }
 
                 using (var comando = new SqlCommand(sql, conexao))
                 {
-                    if (string.IsNullOrEmpty(termo))
+                    if (!string.IsNullOrEmpty(termo) && !string.IsNullOrEmpty(condicao))
                     {
-                        comando.Parameters.AddWithValue("@termo", termo);
+                        if (condicao == "nome")
+                            comando.Parameters.AddWithValue("@termo", $"%{termo}%");
+                        else
+                            comando.Parameters.AddWithValue("@termo", termo);
                     }
                     conexao.Open();
 
